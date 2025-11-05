@@ -1,28 +1,45 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+    <div className="min-h-screen scroll-smooth bg-neutral-950 text-white antialiased">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-neutral-950/70 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="#" className="font-geist text-lg font-semibold tracking-tight">Bentolio</a>
+          <nav className="hidden gap-6 text-sm text-neutral-300 sm:flex">
+            <a className="transition hover:text-white" href="#about">About</a>
+            <a className="transition hover:text-white" href="#projects">Work</a>
+            <a className="transition hover:text-white" href="#contact">Contact</a>
+          </nav>
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-indigo-500 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-indigo-500/30 transition hover:-translate-y-0.5 hover:bg-indigo-400 sm:inline-block"
           >
-            Count is {count}
-          </button>
+            Hire Me
+          </a>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+
+      <footer className="border-t border-white/10 bg-neutral-950 py-10 text-neutral-400">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
+          <p className="text-sm">© {new Date().getFullYear()} Bentolio — All rights reserved.</p>
+          <div className="text-sm">Designed with intention.</div>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
